@@ -13,11 +13,19 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 import secrets
 from pathlib import Path
+from dotenv import load_dotenv
 
 import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / ".env")
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = os.getenv("DEBUG") == "True"
+
+OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 
 # Quick-start development settings - unsuitable for production
@@ -142,7 +150,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-AUTH_USER_MODEL = "dummy.User"
+AUTH_USER_MODEL = "WeatherForcast.User"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

@@ -5,7 +5,9 @@ from django.contrib import messages
 import requests
 from .models import EmailSettings
 User = get_user_model()
+from django.conf import settings
 
+api_key = settings.OPENWEATHER_API_KEY
 
 # Create your views here.
 
@@ -129,7 +131,7 @@ def get_coordinates(request, city):
     params = {
         "q": city,
         "limit": 1,
-        "appid": "66e6c2e542cf345f5d7c5ceb6e43ee5a",
+        "appid": api_key,
     }
 
     response = requests.get(coordinate_url, params=params)
@@ -151,7 +153,7 @@ def get_coordinates(request, city):
 def get_weather_data(loc):
     """Return a dictionary of current weather and none if data not found"""
     parameters = {
-        "appid": "66e6c2e542cf345f5d7c5ceb6e43ee5a",
+        "appid": api_key,
         "q": loc,
         "units": "metric",
     }
