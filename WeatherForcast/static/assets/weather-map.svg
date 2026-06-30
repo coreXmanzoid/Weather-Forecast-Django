@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" fill="none">
+  <defs>
+    <linearGradient id="oceanGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DCEEFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#DCEEFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="landGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8FC3F2"/>
+      <stop offset="100%" stop-color="#5E9FE0"/>
+    </linearGradient>
+    <radialGradient id="sunIcon" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#FFE177"/>
+      <stop offset="100%" stop-color="#FFA62B"/>
+    </radialGradient>
+  </defs>
+
+  <!-- simplified world map continents (stylised flat blobs) -->
+  <g fill="url(#landGrad)" opacity="0.95">
+    <!-- North America -->
+    <path d="M90 110 C130 90 180 95 205 120 C225 140 220 165 200 180 C215 200 205 230 180 240 C150 250 120 235 105 210 C85 215 65 195 70 170 C55 150 65 125 90 110 Z"/>
+    <!-- South America -->
+    <path d="M210 270 C235 260 260 275 265 305 C270 340 255 380 235 410 C220 430 195 425 190 400 C175 380 180 350 190 320 C180 300 190 280 210 270 Z"/>
+    <!-- Europe -->
+    <path d="M430 95 C455 85 485 90 500 110 C515 125 505 145 485 150 C495 165 480 180 460 175 C440 185 420 170 420 150 C405 140 410 115 430 95 Z"/>
+    <!-- Africa -->
+    <path d="M440 190 C470 180 505 195 515 225 C525 255 520 295 505 330 C495 360 470 380 450 365 C430 375 415 350 420 320 C405 300 410 270 420 245 C405 225 415 200 440 190 Z"/>
+    <!-- Asia -->
+    <path d="M540 90 C590 75 660 85 700 110 C740 130 745 165 715 180 C730 200 710 225 680 220 C660 240 620 235 600 215 C575 220 555 200 555 175 C535 160 530 130 540 90 Z"/>
+    <!-- Australia -->
+    <path d="M700 330 C730 320 765 330 775 355 C785 380 765 400 735 398 C710 405 685 390 685 365 C670 355 680 335 700 330 Z"/>
+  </g>
+
+  <!-- latitude/longitude guide lines for map feel -->
+  <g stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="1.5">
+    <line x1="0" y1="140" x2="900" y2="140"/>
+    <line x1="0" y1="250" x2="900" y2="250"/>
+    <line x1="0" y1="360" x2="900" y2="360"/>
+    <line x1="150" y1="0" x2="150" y2="500"/>
+    <line x1="350" y1="0" x2="350" y2="500"/>
+    <line x1="550" y1="0" x2="550" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+  </g>
+
+  <!-- ===== Weather icon: Sunny over North America ===== -->
+  <g transform="translate(140,150)">
+    <circle r="22" fill="url(#sunIcon)"/>
+    <g stroke="#FFC93C" stroke-width="4" stroke-linecap="round">
+      <line x1="0" y1="-32" x2="0" y2="-26"/>
+      <line x1="0" y1="26" x2="0" y2="32"/>
+      <line x1="-32" y1="0" x2="-26" y2="0"/>
+      <line x1="32" y1="0" x2="26" y2="0"/>
+      <line x1="-23" y1="-23" x2="-19" y2="-19"/>
+      <line x1="23" y1="-23" x2="19" y2="-19"/>
+      <line x1="-23" y1="23" x2="-19" y2="19"/>
+      <line x1="23" y1="23" x2="19" y2="19"/>
+    </g>
+  </g>
+  <path d="M140 178 v22" stroke="#2C6BE0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="140" cy="206" r="4" fill="#2C6BE0"/>
+
+  <!-- ===== Weather icon: Rain over South America ===== -->
+  <g transform="translate(225,320)">
+    <ellipse cx="0" cy="0" rx="34" ry="18" fill="#FFFFFF"/>
+    <ellipse cx="-16" cy="-6" rx="18" ry="15" fill="#FFFFFF"/>
+    <ellipse cx="16" cy="-8" rx="20" ry="14" fill="#FFFFFF"/>
+    <g fill="#3E8BFF">
+      <path d="M-14 18 q5 11 0 18 a6 6 0 1 1 0 -18 z"/>
+      <path d="M4 22 q5 11 0 18 a6 6 0 1 1 0 -18 z"/>
+      <path d="M22 18 q5 11 0 18 a6 6 0 1 1 0 -18 z"/>
+    </g>
+  </g>
+  <path d="M225 374 v18" stroke="#2C6BE0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="225" cy="396" r="4" fill="#2C6BE0"/>
+
+  <!-- ===== Weather icon: Cloudy over Europe ===== -->
+  <g transform="translate(465,110)">
+    <ellipse cx="-12" cy="2" rx="24" ry="18" fill="#FFFFFF"/>
+    <ellipse cx="14" cy="-4" rx="28" ry="22" fill="#FFFFFF"/>
+    <ellipse cx="-30" cy="10" rx="16" ry="12" fill="#EAF3FB"/>
+  </g>
+  <path d="M465 138 v18" stroke="#2C6BE0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="465" cy="160" r="4" fill="#2C6BE0"/>
+
+  <!-- ===== Weather icon: Thunder over Africa ===== -->
+  <g transform="translate(465,260)">
+    <ellipse cx="0" cy="0" rx="34" ry="19" fill="#D7E6F5"/>
+    <ellipse cx="-18" cy="-6" rx="18" ry="15" fill="#D7E6F5"/>
+    <ellipse cx="18" cy="-8" rx="20" ry="14" fill="#D7E6F5"/>
+    <path d="M2 16 L-12 40 L0 40 L-8 62 L18 32 L4 32 Z" fill="#FFC93C"/>
+  </g>
+  <path d="M465 320 v18" stroke="#2C6BE0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="465" cy="342" r="4" fill="#2C6BE0"/>
+
+  <!-- ===== Weather icon: Sunny over Asia ===== -->
+  <g transform="translate(650,130)">
+    <circle r="20" fill="url(#sunIcon)"/>
+    <g stroke="#FFC93C" stroke-width="4" stroke-linecap="round">
+      <line x1="0" y1="-29" x2="0" y2="-23"/>
+      <line x1="0" y1="23" x2="0" y2="29"/>
+      <line x1="-29" y1="0" x2="-23" y2="0"/>
+      <line x1="29" y1="0" x2="23" y2="0"/>
+    </g>
+  </g>
+  <path d="M650 156 v18" stroke="#2C6BE0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="650" cy="178" r="4" fill="#2C6BE0"/>
+
+  <!-- ===== Weather icon: Snow over Asia north ===== -->
+  <g transform="translate(620,75)">
+    <ellipse cx="0" cy="0" rx="26" ry="15" fill="#FFFFFF"/>
+    <g fill="#9FD3FF">
+      <circle cx="-10" cy="18" r="3.5"/>
+      <circle cx="6" cy="22" r="3.5"/>
+      <circle cx="20" cy="16" r="3.5"/>
+    </g>
+  </g>
+  <path d="M620 100 v14" stroke="#2C6BE0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="620" cy="120" r="4" fill="#2C6BE0"/>
+
+  <!-- ===== Weather icon: Sunny over Australia ===== -->
+  <g transform="translate(735,360)">
+    <circle r="18" fill="url(#sunIcon)"/>
+    <g stroke="#FFC93C" stroke-width="3.5" stroke-linecap="round">
+      <line x1="0" y1="-26" x2="0" y2="-21"/>
+      <line x1="0" y1="21" x2="0" y2="26"/>
+      <line x1="-26" y1="0" x2="-21" y2="0"/>
+      <line x1="26" y1="0" x2="21" y2="0"/>
+    </g>
+  </g>
+  <path d="M735 384 v16" stroke="#2C6BE0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="735" cy="404" r="4" fill="#2C6BE0"/>
+
+  <!-- ===== Weather icon: Rain over mid-Atlantic / extra marker ===== -->
+  <g transform="translate(355,200)">
+    <ellipse cx="0" cy="0" rx="22" ry="12" fill="#FFFFFF" opacity="0.95"/>
+    <g fill="#3E8BFF">
+      <path d="M-8 12 q4 9 0 14 a5 5 0 1 1 0 -14 z"/>
+      <path d="M8 12 q4 9 0 14 a5 5 0 1 1 0 -14 z"/>
+    </g>
+  </g>
+  <path d="M355 226 v12" stroke="#2C6BE0" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="355" cy="244" r="3.5" fill="#2C6BE0"/>
+</svg>

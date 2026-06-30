@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Sign Up | Weather Forecast
+{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+
+    <div class="container">
+
+        <div class="row justify-content-center align-items-center min-vh-100">
+
+            <div class="col-lg-6 col-md-8">
+
+                <div class="auth-card">
+
+                    <div class="text-center mb-4">
+
+                        <i class="bi bi-cloud-sun-fill auth-logo"></i>
+
+                        <h2>Create Account</h2>
+
+                        <p class="text-muted">
+
+                            Join Weather Forecast today.
+
+                        </p>
+
+                    </div>
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    First Name
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="firstName"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+
+                                    Last Name
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="lastName"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Username
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="username"
+                                required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Email Address
+
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                name="email"
+                                required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+
+                                Password
+
+                            </label>
+
+                            <input
+                                type="password"
+                                class="form-control"
+                                name="password1"
+                                required>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+
+                                Confirm Password
+
+                            </label>
+
+                            <input
+                                type="password"
+                                class="form-control"
+                                name="password2"
+                                required>
+
+                        </div>
+                        <div class="mb-4">
+
+                            <input type="checkbox" name="canSendMails" width="100px">
+                            <label class="form-label">
+
+                                Send me Emails with weather detail
+
+                            </label>
+
+
+                        </div>
+
+                        <button class="btn btn-primary w-100">
+
+                            <i class="bi bi-person-plus-fill"></i>
+
+                            Create Account
+
+                        </button>
+
+                    </form>
+
+                    <hr>
+
+                    <p class="text-center mb-0">
+
+                        Already have an account?
+
+                        <a href="{% url 'login' %}">
+
+                            Login
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

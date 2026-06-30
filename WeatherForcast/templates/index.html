@@ -1,0 +1,313 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home | Weather Forecast
+{% endblock %}
+
+{% block content %}
+
+<!-- =======================================================
+                        Hero Section
+======================================================== -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-100">
+
+            <!-- Left Side -->
+
+            <div class="col-lg-6">
+
+                <span class="hero-badge">
+                    <i class="bi bi-cloud-sun-fill"></i>
+                    Live Weather Updates
+                </span>
+
+                <h1 class="hero-title mt-4">
+                    Know the Weather
+                    <span>Before You Step Outside</span>
+                </h1>
+
+                <p class="hero-text mt-4">
+
+                    Get accurate weather information for any city around
+                    the world. Our application provides real-time weather
+                    conditions including temperature, humidity, wind speed,
+                    pressure, visibility, sunrise and sunset using the
+                    OpenWeather API.
+
+                </p>
+
+                <div class="mt-5">
+
+                    <a href="{% url 'home' %}" class="btn btn-warning btn-lg px-4 me-3">
+
+                        <i class="bi bi-search"></i>
+
+                        Search Weather
+
+                    </a>
+
+                    <a href="#features" class="btn btn-outline-light btn-lg px-4">
+
+                        Learn More
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="col-lg-6 text-center">
+
+                <img
+                    src="{% static 'assets/hero-weather.svg' %}"
+                    class="img-fluid hero-image"
+                    alt="Weather Illustration">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+                    Features Section
+======================================================== -->
+
+<section id="features" class="py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="section-title">
+
+                Why Choose Our Weather App?
+
+            </h2>
+
+            <p class="section-text">
+
+                Everything you need to know about today's weather.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <i class="bi bi-thermometer-half feature-icon"></i>
+
+                    <h4>Live Temperature</h4>
+
+                    <p>
+
+                        Accurate and real-time temperature updates
+                        from trusted weather data.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <i class="bi bi-globe feature-icon"></i>
+
+                    <h4>Worldwide Coverage</h4>
+
+                    <p>
+
+                        Search weather for thousands of cities
+                        across the globe.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <i class="bi bi-wind feature-icon"></i>
+
+                    <h4>Detailed Forecast</h4>
+
+                    <p>
+
+                        Wind speed, humidity,
+                        pressure, visibility and much more.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="feature-card">
+
+                    <i class="bi bi-lightning-charge feature-icon"></i>
+
+                    <h4>Fast Response</h4>
+
+                    <p>
+
+                        Get weather information within seconds
+                        using OpenWeather API.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+                    About Preview
+======================================================== -->
+
+<section class="about-preview py-5">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 text-center">
+
+                <img
+                    src="{% static 'assets/weather-map.svg' %}"
+                    class="img-fluid about-image"
+                    alt="Weather">
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <h2 class="section-title">
+
+                    Weather Information Made Simple
+
+                </h2>
+
+                <p class="mt-4">
+
+                    Weather Forecast is a modern Django application
+                    that provides accurate weather information using
+                    the OpenWeather API.
+
+                </p>
+
+                <p>
+
+                    Search any city and instantly receive
+
+                </p>
+
+                <ul class="feature-list">
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Temperature
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Humidity
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Wind Speed
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Pressure
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Sunrise & Sunset
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Visibility
+                    </li>
+
+                </ul>
+
+                <a href="{% url 'signup' %}" class="btn btn-primary btn-lg mt-3">
+
+                    Start Exploring
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+                    Call To Action
+======================================================== -->
+
+<section class="cta-section">
+
+    <div class="container text-center">
+
+        <h2>
+
+            Ready to Check Today's Weather?
+
+        </h2>
+
+        <p>
+
+            Search any city and get instant weather updates.
+
+        </p>
+
+        <a href="{% url 'home' %}" class="btn btn-warning btn-lg px-5">
+
+            <i class="bi bi-search"></i>
+
+            Check Weather
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
