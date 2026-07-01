@@ -6,6 +6,7 @@ settings.AUTH_USER_MODEL
 
 # Create your models here.
 class User(AbstractUser):
+    is_verified = models.BooleanField(default=False)
     quries_per_day = models.SmallIntegerField(default=0)
     can_send_email = models.BooleanField(default=True)
 

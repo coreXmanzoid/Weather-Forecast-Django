@@ -2,8 +2,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, get_user_model, authenticate
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
-import requests
 from .models import EmailSettings
+from django.urls import reverse
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.auth import get_user_model
+from . import email_service
+import requests
+
+email_service = email_service.EmailService()
 User = get_user_model()
 from django.conf import settings
 
@@ -210,3 +218,74 @@ def home(request):
 
     context = { "user_settings": user_settings, "weather": weather_data }
     return render(request, "home.html", context)
+
+@login_required(login_url="login")
+def email_verification(request):
+    """
+    Sends a verification email to the currently logged-in user.
+    """
+
+    user = request.user
+
+    uid = urlsafe_base64_encode(force_bytes(user.pk))
+    token = default_token_generator.make_token(user)
+
+    verification_link = request.build_absolute_uri(
+        reverse(
+            "verify-email",
+            kwargs={
+                "uidb64": uid,
+                "token": token,
+            },
+        )
+    )
+
+    email_sent = email_service.send_link_email(
+        user.email,
+        verification_link,
+        st=1,
+    )
+
+    if not email_sent:
+        messages.error(request, "Unable to send verification email.")
+        return redirect("home")
+
+    messages.success(
+        request,
+        "Verification email has been sent to your email address.",
+    )
+    return redirect("home")
+
+
+def verify_email(request, uidb64, token):
+    """
+    Verifies the user's email using the verification link.
+    """
+
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        messages.error(request, "Invalid verification link.")
+        return redirect("login")
+
+    if not default_token_generator.check_token(user, token):
+        messages.error(request, "Verification link has expired or is invalid.")
+        return redirect("login")
+
+    if user.is_verified:
+        messages.info(request, "Your email has already been verified.")
+        return redirect("login")
+
+    user.is_verified = True
+    user.save()
+
+    messages.success(request, "Your email has been verified successfully.")
+
+    return redirect("login")
+
+from django.conf import settings
+
+print(settings.DEBUG)
+print(settings.ALLOWED_HOSTS)
+print(settings.SECURE_SSL_REDIRECT)
